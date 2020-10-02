@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Unicycle</title>
+<script>
+var rotateCycle;
+var cycleImages=new Array(16);
+var currentCycle = 0;
+for (var x = 0; x <16; x++)
+    cycleImages[x] = 'unicycle'+x+'.gif';
+function right(){
+    if (currentCycle == 15)
+        currentCycle =0;
+    else
+        ++currentCycle;
+    document.images[0].src = cycleImages[currentCycle];
+}
+function start(direction){
+    if(rotateCycle != null)
+    clearInterval(rotateCycle);
+    if(direction == 'r')
+    rotateCycle= setInterval("right()",150);
+    else
+    rotateCycle= setInterval("left()",150);
+}
+function left(){
+    if (currentCycle == 0)
+        currentCycle =15;
+    else
+        --currentCycle;
+    document.images[0].src = cycleImages[currentCycle];
+}
+</script>
+</head>
+<body>
+<p><img src="unicycle1.gif" alt="Image of a unicycle." height="75" width="75" /></p>
+<form>
+<p>
+<input type="button" value=" Forward " onclick="start('f');" />
+<input type="button" value=" Stop " onclick="clearInterval(rotateCycle);" />
+<input type="button" value="Reverse" onclick="start('r');" />
+</p>
+</form>
+</body>
+</html>

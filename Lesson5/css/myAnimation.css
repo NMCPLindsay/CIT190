@@ -1,0 +1,46 @@
+body{
+    background-image:url('../media/mariobg.jpg');
+    background-repeat:no-repeat;
+    background-size:950px auto;
+    background-color:black;
+  }
+  #container {
+    width: 16px;
+    height: 25px;
+    /*  */
+    position: relative;
+    /*  */
+  }
+  #mario {
+    width: 16px;
+    height: 26px;
+    position: relative;
+    background: url('../media/mario.png');
+    background-size: cover;
+    background-color: none;
+    animation: marioswim 1s steps(3) infinite;
+  }
+  p{
+    color:white;
+  }
+  input{
+      text-align:center;
+  }
+  #coords{
+      position:absolute;
+      left:550px;
+      top:20px;
+  }
+  section{
+      width:900px;
+      height:600px;
+  }
+  button{
+      width:200px;
+      padding:10px;
+      color:white;
+      background-color:green;
+  }
+@keyframes marioswim{
+    100% {background-position: 48px ;}
+}

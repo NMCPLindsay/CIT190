@@ -1,0 +1,92 @@
+body{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:16pt;
+}
+
+footer, header{
+    background-color: white;
+    opacity: 75%;
+    width: cover;
+}
+a{
+    color: orange;
+}
+a:link, a:visited{
+    color:darkslateblue;
+    text-decoration:underline;
+}
+a:hover, a:active{
+    padding: 5px;
+    color:  white;
+    background-color: goldenrod ;
+    text-shadow: darkblue;
+    text-decoration: none;
+    
+}
+@keyframes slidein {
+    from {
+        margin-left:200%;
+        width: 300%;
+        }
+    
+    to {
+        margin-left: 0%;
+        width: 100%;
+        }
+    }    
+h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /*  use em for size or another relative measurement */
+     font-size: xx-large;
+     color: orange;
+     text-shadow: none;
+     text-align:left;
+    animation-duration: 3s;
+    animation-name: slidein;
+}
+  
+h2{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: orange;
+   /*  use em for size or another relative measurement */
+    font-size: x-large;
+    text-shadow: slategray;
+    /*  use % for width */
+    width: 100%;
+    
+    /* can use pixels for padding */
+    padding: 4px;
+ 
+    
+}
+h3{
+    color:grey;
+    font-size:1.1em;
+    text-shadow:1px 1px 1px gray;
+    background-color:goldenrod;
+    border-radius:20px;
+    padding:15px;
+    width:30%;
+}
+p{
+    margin-left:30px;
+}
+section{
+    background-color:white;
+    opacity:60%;
+    width:75%;
+    border-radius:30px;
+    padding:20px;
+}
+.parallax {
+    /* The image used */
+    background-image: url("../media/assignmentsBG.jpg");
+    /* Full height */
+    height: 100%;
+    /* Create the parallax scrolling effect */
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    
+    }

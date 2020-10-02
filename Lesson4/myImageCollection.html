@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cosplay helmets</title>
+
+<style>
+a{
+    padding-right:10px;
+    color:orangered;
+}
+nav a:hover{
+	background-color:white;
+}
+a:hover{
+	background-color:darkgreen;
+}
+body{
+ background: darkseagreen;
+}
+h3{
+    color: gold;
+    font-size: x-large;
+}
+p{
+    color: palegoldenrod;
+    font-size: larger;
+}
+
+</style>
+</head>
+<body onload="processName();">
+<hr>
+<a href="media/vader.jpg">
+<img alt="Vader Helmet" class="auto-style2" src="media/thumbnails/vaderthumb.jpg" style="width: 100px; height: 100px">
+</a>
+<a href="media/starlord.jpg">
+<img alt="Star Lord Helmet" class="auto-style2" src="media/thumbnails/starthumb.jpg" style="width: 100px; height: 100px">
+</a>
+<a href="media/antman.jpg">
+<img alt="Antman Helmet" class="auto-style2" src="media/thumbnails/antthumb.jpg" style="width: 100px; height: 100px">
+</a>
+<a href="media/luke.jpg">
+<img alt="Luke Pilot Helmet" class="auto-style2" src="media/thumbnails/lukethumb.jpg" style="width: 100px; height: 100px">
+</a>
+<hr>
+<h3>Photo Name:</h3>
+<p id="name">
+	<script>
+	// Displays the text from the alt attribute as the Image Name
+	function processName()
+	{
+		var contents = "";
+		// concatenate each alternate name
+		for ( var i = 0; i < document.images.length; i++ )
+		{
+		     contents += i+1 + ". " +  document.images[i].alt + "&nbsp;&nbsp; ";
+		} // end for
+		document.getElementById( "name" ).innerHTML = contents;
+		// calls function proccessSource in script below
+		processSource();  
+	}	
+	</script>
+</p>
+<h3>Photo Source</h3>
+<p id="source">
+	<script>
+	
+	function processSource()
+	{
+		var contents = "";
+		
+		for ( var i = 0; i < document.images.length; i++ )
+		{
+			  contents += i+1 + ". " +  document.images[i].src + "&nbsp;&nbsp; ";
+	} 
+	document.getElementById( "source" ).innerHTML = contents;
+	
+	processLinks();
+	}
+	</script>
+</p>
+<h3>Photo Text Links</h3>
+	<nav id="links">
+	<script>
+	
+		function processLinks()
+		{
+			var contents = "| ";
+			
+			for ( var i = 0; i < document.links.length; i++ )
+			{
+			   contents += "<a href=" + document.links[i].href + ">" + document.images[i].alt + "</a>  | ";
+			} 
+			document.getElementById( "links" ).innerHTML = contents;
+		} 
+	</script>
+	</nav>
+<hr>
+</body>
+</html>

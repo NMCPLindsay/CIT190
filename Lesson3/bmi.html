@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Body Mass Index</title>
+<style>
+body{
+	font-family: sans-serif;
+	background-image:url('media/bmi.jpg');
+    background-repeat:no-repeat;
+    background-size:contain;
+    color:darkblue;
+    font-size:14pt;
+}
+section{
+	margin-left:305px;
+	background-color:gainsboro;
+	width:500px; 
+	padding:20px;
+	box-shadow:10px 10px 10px red;
+	opacity: 75%;
+	
+}
+h1{
+	font-size:28pt;
+	text-align:center;
+}
+input:focus { 
+    background-color:red;
+    color:white;
+}
+p{
+	text-align:center;
+	font-size:14pt;
+	font-weight:900;
+}
+.inputButton{
+	font-size:14pt;
+	width: 100px; 
+	height: 30px;
+	font-size:12pt;
+	background-color: blue;
+	color:white;
+}
+.formEntry{
+	text-align:center;
+	width:100px;
+	height:20px;
+	font-size:14pt;
+	color:blue;
+}
+.labelDisplay{
+	width:300px;
+	text-align:right;
+	float:left;
+}
+</style>
+<script>
+function calcBMI() {
+	var height = parseInt(document.getElementById("height").value);
+	var weight = parseInt(document.getElementById("weight").value);
+	if (weight=="" || height=="")
+	    document.getElementById("msg").innerHTML="You need to enter a valid number for height and weight, try again!";
+	else if (isNaN(weight) || isNaN(height))
+    	document.getElementById("msg").innerHTML="You need to enter a valid number for height and weight, try again!";
+	
+    	
+	else {   
+	var bmi = (weight * 703)/(height*height);
+	var range = "";
+	if(bmi<18.5){
+		range = "Underweight";
+	}
+	else if (bmi>=18.5 && bmi<24.9){
+		range = "Normal";
+	}
+	else if (bmi>=24.9 && bmi<29.9){
+		range = "Overweight";
+	}
+	else if (bmi>=30 && bmi<34.9){
+		range = "Obese";
+	}
+	else{
+		range = "Extremely Obese";
+	}
+	document.getElementById("msg").innerHTML="Your BMI is: " + Math.round(bmi) + "%" + " You're in the " + range + " range.";
+	}
+	
+}
+function getFocus(){
+	document.getElementById("weight").focus();
+	document.getElementById("msg").innerHTML=" ";
+}
+</script>
+</head>
+<body  onload="getFocus();">
+<section>
+	<h1>Body Mass Index</h1>
+	<form action="" id="bmiForm">
+		<p style="text-align:left;">
+			<label class="labelDisplay" for="age">Weight(lbs)</label><input class="formEntry" type="text" id="weight" value="" size="10" style="text-align:center;"/><br />
+			<label class="labelDisplay" for="months">Height(Inches)</label><input class="formEntry" type="text" id="height" value=""  size="10" style="text-align:center;"/>
+		<p>
+		<input class="inputButton" type="button" value="Calculate" onclick="calcBMI()"/>
+		<input class="inputButton" type="reset" value="Reset" onclick="getFocus()" />
+		<hr/>
+		</p>
+		<p id="msg" style="font-size:20pt;font-weight:900;text-align:center;"></p>
+	</form>
+</section>
+</body>
+</html>
