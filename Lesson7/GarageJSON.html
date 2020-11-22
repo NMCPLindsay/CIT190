@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Garage XML</title>
+<style>
+body {
+    background-image: url('media/garage.jpg');
+    background-position: top;
+    background-size: stretch;
+}
+div {
+    background-color: antiquewhite;
+    border-radius: 30px;
+    opacity: .7;
+    padding: 10px 0px 20px 40px;
+    text-align: left;
+    width: 40%;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    font-size: 120%;
+}
+h2 {
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 2px 2px darkgoldenrod;
+    color: white;
+}
+th {
+    border-top: dashed white 5px;
+    border-bottom: dashed white 5px;
+    color: Black;
+    text-shadow: 1px 1px aqua;
+    padding: 20px 0px;
+    margin: 0px;
+}
+td {
+    border-bottom: solid 1px white;
+    box-shadow: 1px 1px black;
+}
+.alignRight {
+    text-align: right;
+}
+button {
+    border-radius: 20px;
+    padding: 10px;
+}
+</style>
+</head>
+<body>
+<h2>Cars in the garage:</h2>
+<div id="vehicleInfo"><p id="content"></p></div>
+
+<script>
+var xhr = new XMLHttpRequest();   // Create XMLHttpRequest object
+xhr.onload = function() {                       
+  if(xhr.status === 200) {      
+    responseObject = JSON.parse(xhr.responseText);
+    var newContent = '';
+    for (var i = 0; i < responseObject.Garage.length; i++) { // Loop through object
+      newContent += '<p>Make: ' + responseObject.Garage[i].Make + '<br>';
+      newContent += 'Model: ' + responseObject.Garage[i].Model + '<br>';
+      newContent += 'Trim: ' + responseObject.Garage[i].Trim + '<br>';
+      newContent += 'Year: ' + responseObject.Garage[i].Year + '</p>';
+      newContent += '<hr>';
+    }
+
+    // Update the page with the new content
+    document.getElementById('content').innerHTML = newContent;
+
+  }
+};
+xhr.open('GET', 'data.json', true);        // Prepare the request
+xhr.send(null); 
+</script>
+</body>
+</html>
