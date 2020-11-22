@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+body {
+  font-family: 'Lobster', cursive;
+  margin: 0;
+  padding: 0;
+}
+#page {
+  background-color: blanchedalmond;
+  box-shadow: 2px 2px grey;
+  margin: 0 auto 0 auto;
+  position: relative;
+  text-align: center;
+}
+/* Responsive page rules at bottom of style sheet */
+h1 {
+  background-size: 50%;
+  text-align: center;
+  text-indent: -1000%;
+  height: 75px;
+  line-height: 75px;
+  width: 117px;
+  margin: 0 auto 0 auto;
+  padding: 30px 10px 20px 10px;
+}
+h2 {
+  color: darkred;
+  background-color: linen;
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  display: inline-block;
+  margin: 20px 0 23px 0;
+  width: 100%;
+  padding-top: 10px;
+}
+h2 span {
+  background-color: darkred;
+  color: blanchedalmond;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  display: inline-block;
+  position: relative;
+  border-radius: 50%;
+  top: -5px;
+  height: 22px;
+  width: 26px;
+  padding: 4px 0 0 0;
+}
+ul {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+li {
+  background-color: bisque;
+  opacity: .8;
+  color: grey;
+  border: 1px solid black;
+  font-size: 24px;
+  letter-spacing: .05em;
+  list-style-type: none;
+  text-shadow: 1px 1px grey;
+  text-align: left;
+  height: 50px;
+  padding-left: 1em;
+  padding-top: 10px;
+}
+.complete {
+  background-color: blanchedalmond;
+  opacity: .8;
+  color: darkred;
+  background-image: url("../media/icon-trash.png");
+  background-position: right, center;
+  background-repeat: no-repeat;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  text-shadow: 1px 1px 1px black;
+}
+.complete a {
+  display: block;
+}
+/* FORM STYLES */
+form {
+  padding: 0 20px 20px 20px;
+}
+input[type=text], input[type=password], textarea {
+  background-color: white;
+  color: maroon;
+  font-size: 24px;
+  width: 96%;
+  padding: 4px 6px;
+  border: 1px solid gray;
+  border-radius: 8px;
+}
+input[type=submit], a.add, button, a.show {
+  background-color: maroon;
+  box-shadow: 2px 2px black;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  padding: 8px 10px;
+  margin-top: 10px;
+  font-family: 'Lobster', cursive;
+  font-size: 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+input[type=submit], a.add, button {
+  float: right;
+}
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+  outline: none;
+}
+input[type=submit]:hover, a.add:hover, a.show:hover {
+  background-color: white;
+  color: darkred;
+  border: 2px solid blanchedalmond;
+  box-shadow: 2px 2px grey;
+  cursor: pointer;
+}
+/* form example */
+#newItemButton {
+  padding: 10px 20px 75px 20px;
+  display: none;
+}
+#newItemForm {
+  padding-top: 20px;
+}
+#itemDescription {
+  width: 360px;
+}
+#newItemForm input[type=submit] {
+  margin-top: 0;
+  text-align: left;
+}
+/* Small screen:mobile */
+@media only screen and (max-width: 500px) {
+  body {
+    background-color: black;
+  }
+  #page {
+    max-width: 480px;
+  }
+}
+@media only screen and (min-width: 501px) and (max-width: 767px) {
+  #page {
+    max-width: 480px;
+    margin: 20px auto 20px auto;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  #page {
+    max-width: 480px;
+    margin: 20px auto 20px auto;
+  }
+}
+/* Larger screens act like a demo for the app */
+@media only screen and (min-width: 960px) {
+  #page {
+    max-width: 480px;
+    margin: 20px auto 20px auto;
+  }
+}

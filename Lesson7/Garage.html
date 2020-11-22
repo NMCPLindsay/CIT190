@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Garage XML</title>
+<style>
+body {
+    background-image: url('media/garage.jpg');
+    background-position: top;
+    background-size: stretch;
+}
+div {
+    background-color: antiquewhite;
+    border-radius: 30px;
+    opacity: .7;
+    padding: 10px 0px 20px 40px;
+    text-align: left;
+    width: 40%;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    font-size: 120%;
+}
+h2 {
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 2px 2px darkgoldenrod;
+    color: white;
+}
+th {
+    border-top: dashed white 5px;
+    border-bottom: dashed white 5px;
+    color: Black;
+    text-shadow: 1px 1px aqua;
+    padding: 20px 0px;
+    margin: 0px;
+}
+td {
+    border-bottom: solid 1px white;
+    box-shadow: 1px 1px black;
+}
+.alignRight {
+    text-align: right;
+}
+button {
+    border-radius: 20px;
+    padding: 10px;
+}
+</style>
+</head>
+<body>
+<h2>Cars in the garage:</h2>
+<div id="vehicleInfo"></div>
+<button id="load">Get the vehicle list</button>
+<script>
+var myCollection = document.getElementById("load");
+myCollection.addEventListener("click", function() {
+    var xhttp=new XMLHttpRequest();
+    xhttp.onreadystatechange=function() {
+        if (xhttp.readyState==4 && xhttp.status==200)
+            {
+                xmlDoc=xhttp.responseXML;
+                var txt="<table style='border:0'><tr><th>Make</th><th>Model</th><th>Engine</th>";
+                var a=xmlDoc.getElementsByTagName("make");
+                var t=xmlDoc.getElementsByTagName("model");
+               
+                var e=xmlDoc.getElementsByTagName("engine");
+                for (var i=0;i<a.length;i++)
+                    {
+                        txt=txt + "<tr><td>";
+                        txt=txt + a[i].childNodes[0].nodeValue + "</td><td>";
+                        txt=txt + t[i].childNodes[0].nodeValue + "</td><td class='alignRight'>";
+                        txt=txt + e[i].childNodes[0].nodeValue + "</td></tr>";
+                        
+                    }
+                txt = txt + "</table>";    
+                document.getElementById("vehicleInfo").innerHTML=txt;
+                document.getElementById("load").style.visibility='hidden';
+            }
+    }
+    xhttp.open("GET","data.xml",true);
+    xhttp.send();
+});
+</script>
+</body>
+</html>

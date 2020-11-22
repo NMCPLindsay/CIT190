@@ -9,7 +9,7 @@ document.getElementById("down").addEventListener("click",function() {
   posX=elem.x;
   function frame() {
     document.getElementById("stop").addEventListener("click",function(){clearInterval(id);});
-    if (posY>=450) {
+    if (posY>=500) {
       clearInterval(id);
     } else {
       posY++;
@@ -26,7 +26,7 @@ document.getElementById("up").addEventListener("click",function() {
   posX=elem.x;
   function frame() {
     document.getElementById("stop").addEventListener("click",function(){clearInterval(id);});
-    if (posY <= 16) {
+    if (posY <= 80) {
       clearInterval(id);
     } else {
       posY--;
@@ -43,7 +43,7 @@ document.getElementById("right").addEventListener("click",function() {
   var id = setInterval(frame, 5);
   function frame() {
     document.getElementById("stop").addEventListener("click",function(){clearInterval(id);});
-    if (posX >= 675) {
+    if (posX >= 920) {
       clearInterval(id);
     } else {
       posX++;
@@ -60,7 +60,7 @@ document.getElementById("left").addEventListener("click",function() {
   var id = setInterval(frame, 5);
   function frame() {
     document.getElementById("stop").addEventListener("click",function(){clearInterval(id);});
-    if (posX <= 50) {
+    if (posX <= 10) {
       clearInterval(id);
     } else {
       posX--;

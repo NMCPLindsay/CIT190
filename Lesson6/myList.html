@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chores</title>
+    <link rel="stylesheet" href="css/myList.css" />
+  </head>
+  <body>
+    <div id="page">	
+      <h2>Chore List <span id="counter"></span></h2>
+      <ul>
+        <li id="one" >Dishes</li>
+        <li id="two" >Laundry</li>
+        <li id="three">Sweep</li>
+        <li id="four">Mop</li>
+      </ul>
+      <div id="newItemButton"><button href="#" id="showForm">new item</button></div>
+      <form id="newItemForm">
+        <input type="text" id="itemDescription" placeholder="Add description" />
+        <input type="submit" id="add" value="add" />
+      </form>
+    </div>
+   <script src="https://code.jquery.com/jquery-latest.js"></script>
+   <script src="js/myList.js"></script>
+  </body>
+</html>

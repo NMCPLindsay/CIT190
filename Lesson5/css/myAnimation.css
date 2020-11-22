@@ -38,8 +38,9 @@ body{
   button{
       width:200px;
       padding:10px;
-      color:white;
-      background-color:green;
+      color:yellow;
+      background-color:red;
+      border-color: blue;
   }
 @keyframes marioswim{
     100% {background-position: 48px ;}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+    <car>
+        <make>Cheverolet</make>
+        <model>Camaro</model>
+        <country>USA</country>
+        <trim>RS</trim>
+        <engine>383 Stroker</engine>
+        <year>1973</year>
+    </car>
+    <car>
+        <make>BMW</make>
+        <model>328i</model>
+        <country>Germany</country>
+        <trim>X-Drive</trim>
+        <engine>3.0 TwinTurbo</engine>
+        <year>2009</year>
+    </car>
+    <car>
+        <make>Audi</make>
+        <model>A8</model>
+        <country>Germany</country>
+        <trim>L 55 TFSI</trim>
+        <engine>3.0 Turbo</engine>
+        <year>2020</year>
+    </car>
+    <car>
+        <make>MINI</make>
+        <model>Clubman</model>
+        <country>UK</country>
+        <trim>Cooper S</trim>
+        <engine>2.0 Turbo</engine>
+        <year>2020</year>
+    </car>
+</catalog>
