@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#draggable").click(function(){
+        $.get("MyDraggable.html", function(data,status){ 
+          if (status=="success"){
+            $("#pageDisplay").html(data);
+           } 
+          else{
+            $("#pageDisplay").html("Error retrieving draggable");
+         }});
+    });
+    $("#bmi").click(function(){
+        $.get("bmi.html", function(data,status){
+          if(status=="success"){  
+            $("#pageDisplay").html(data);
+           } 
+          else{
+            $("#pageDisplay").html("Error retrieving BMI");
+        }});
+    });
+    $("#assignments").click(function(){
+        $.get("index.html", function(data,status){
+          if(status=="success"){  
+            $("#pageDisplay").html(data);
+           } 
+          else{
+            $("#pageDisplay").html("Error retrieving Assignments");
+        }});
+    });
+});
+</script>
+</head>
+<body>
+<button id="draggable">Load Draggable</button>
+<button id="bmi">Load BMI calc</button>
+<button id="assignments">Load Assignments Page</button>
+<div id="pageDisplay"><h2>Pick a page to view.</h2></div>
+</body>
+</html>

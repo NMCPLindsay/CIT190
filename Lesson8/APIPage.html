@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta  charset="utf-8">
+<title>Marvel API</title>
+<script src="jquery.min.js"></script>
+<style>
+.center{
+	margin-right:auto;
+	margin-left:auto;
+}
+article{
+	display:flex;
+	flex-flow:row wrap;
+}
+section{
+	flex:1;
+	border:2px groove black;
+	max-width:250px;
+	padding:20px;
+}
+</style>
+</head>
+<body>
+    <h1>Comic Book DB</h1>
+    <p>Select the button to see the next 20 marvel comics&nbsp;<button id = "sub" type="button" >Next 20</button></p>
+    <p>You are viewing comics <input id="counter" type="text"></p>
+    <hr>
+    <article id="display"></article>
+    <script>
+    var URL="";
+    var text="";
+    var charCount=0;
+    document.getElementById("sub").addEventListener("click", function(){
+    
+            document.getElementById("display").innerHTML = "";
+            text="";
+            countDisplay=charCount + " to ";
+            charCount+=20;
+            countDisplay += charCount;
+            document.getElementById("counter").value=countDisplay;
+            var offset="offset=" + charCount;
+            URL="https://gateway.marvel.com:443/v1/public/comics?" + offset + "&apikey=054b0a650163770a2cf9e101ff7687d3";
+                            
+            $.getJSON(URL,function(response){
+                console.log(response);
+                if (response.data.results.length==0){
+                    document.getElementById("display").innerHTML = "";
+                    text+="<p>Sorry, there is nothing to display</p>";
+                    }
+                else{
+                    for (x=0; x<response.data.results.length; x++){
+                         text += "<section><h2>"+response.data.results[x].title+ "</h2>";
+                         text += "<p>(ID=" + response.data.results[x].id + ")</p>";
+    
+                         text+= "<p>" + response.data.results[x].description + "</p>";
+                         if (response.data.results[x].thumbnail.image.path){
+                             beginGraphic="<img src=";
+                             endGraphic=" alt='marvel comics graphic' style='max-width:250px;' >";
+                             text+= "<p>" + beginGraphic + response.data.results[x].thumbnail.image.path + "." +
+                             response.data.results[x].thumbnail.image.extension + endGraphic;
+                          }
+                         text +="</section>"; 
+                    } 
+                }
+     
+              document.getElementById("display").innerHTML=text;
+            })  
+     });
+    </script>
+    </body>
+    </html>
